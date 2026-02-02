@@ -69,9 +69,14 @@
       from { transform: translateY(0) scale(1); opacity: 1; }
       to { transform: translateY(-120px) scale(1.8); opacity: 0; }
     }
+      #no {
+      position: relative;
+    }
   </style>
 </head>
 <body>
+  <!-- Muzika -->
+  <iframe id="music" width="0" height="0" src="https://www.youtube.com/embed/1x0Z1Z5qzGQ?autoplay=1&loop=1&playlist=1x0Z1Z5qzGQ&mute=1" frameborder="0" allow="autoplay"></iframe>
   <div class="card">
     <h1>Hej Jovana 💕<br>Ideš li 14. februara sa mnom na<br><strong>Vladin koncert</strong>? 🎶</h1>
     
@@ -100,25 +105,33 @@
       }
     }
 
+    noBtn.addEventListener('mouseover', () => {
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 100);
+      noBtn.style.position = 'absolute';
+      noBtn.style.left = x + 'px';
+      noBtn.style.top = y + 'px';
+    });
+
     noBtn.addEventListener('click', () => {
       yesScale += 0.3;
-      noScale -= 0.2;
-
-      if (noScale < 0.15) noScale = 0.15;
-
       yesBtn.style.transform = `scale(${yesScale})`;
-      noBtn.style.transform = `scale(${noScale})`;
-
-      explodeHearts(noBtn.offsetLeft, noBtn.offsetTop);
+    });
 
       if (yesScale >= 5) {
         document.body.innerHTML = '<h1 style="color:white;text-align:center;">Znao sam 😍<br>Vidimo se na koncertu, Jovana! 🎶❤️</h1>';
       }
     });
 
+    // Pusti muziku kad klikne DA
+    function unmuteMusic() {
+      const iframe = document.getElementById('music');
+      iframe.src = iframe.src.replace('mute=1', 'mute=0');
+    }
+
     yesBtn.addEventListener('click', (e) => {
       explodeHearts(e.clientX, e.clientY);
-      document.body.innerHTML = '<h1 style="color:white;text-align:center;">JUPIII 😍<br>Hajde na koncert sa svojim Mađarom!!! 😄❤️<br>Vidimo se na Vladovom koncertu 🎶</h1>';
+      document.body.innerHTML = '<h1 style="color:white;text-align:center;">JUPIII 😍<br>Hajde na koncert sa svojim Mađarom!!! 😄❤️<br>Vidimo se na Vladić koncertu 🎶</h1>';
     });
       document.body.innerHTML = '<h1 style="color:white;text-align:center;">JUPIII 😍<br>Hajde na koncert sa svojim Mađarom!!! 🎶❤️</h1>';
     });
