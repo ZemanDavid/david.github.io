@@ -74,7 +74,7 @@
 <body>
   <div class="card">
     <h1>Hej Jovana 💕<br>Ideš li 14. februara sa mnom na<br><strong>Vladin koncert</strong>? 🎶</h1>
-    <p>Hajde na koncert sa svojim Mađarom!!! 😄❤️</p>
+    
     <div class="buttons">
       <button id="yes">DA</button>
       <button id="no">NE</button>
@@ -118,6 +118,8 @@
 
     yesBtn.addEventListener('click', (e) => {
       explodeHearts(e.clientX, e.clientY);
+      document.body.innerHTML = '<h1 style="color:white;text-align:center;">JUPIII 😍<br>Hajde na koncert sa svojim Mađarom!!! 😄❤️<br>Vidimo se na Vladovom koncertu 🎶</h1>';
+    });
       document.body.innerHTML = '<h1 style="color:white;text-align:center;">JUPIII 😍<br>Hajde na koncert sa svojim Mađarom!!! 🎶❤️</h1>';
     });
   </script>
